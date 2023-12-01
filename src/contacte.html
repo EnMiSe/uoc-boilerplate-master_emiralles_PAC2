@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" type="text/css" href="./assets/styles/main.scss"><!-- do not remove this line! -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>UOC Boilerplate</title>
+  </head>
+  <body>
+    <header>
+        <h1>Contacte amb Enric Miralles</h1>
+    </header>
+    <main>
+
+        <nav>
+            <ul>
+                <li><a href="index.html">Inici</a></li>
+                <li><a href="participants.html">Participants</a></li>
+                <li><a href="article.html">Article</a></li>
+                <li><a href="contacte.html">Contacte</a></li>
+            </ul>
+        </nav>
+        <section class="contact-container">
+            <form class="contact-form">
+                <label for="name">Nom:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Correu electrònic:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">Missatge:</label>
+                <textarea id="message" name="message" required></textarea>
+
+                <button type="submit">Enviar</button>
+            </form>
+        </section>
+    </main>
+    </main>
+    </div>
+    <include src="./views/footer.html"></include>
+    <script type="module" src="./assets/scripts/main.js"></script><!-- do not remove this line! -->
+  </body>
+</html>
