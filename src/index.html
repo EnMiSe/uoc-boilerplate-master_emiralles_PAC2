@@ -1,39 +1,64 @@
 <!DOCTYPE html>
 
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <link rel="stylesheet" type="text/css" href="./assets/styles/main.scss"><!-- do not remove this line! -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>UOC Boilerplate</title>
-  </head>
-  <body>
-    <header>
-      <div><img class="logo_Club" src="/src/assets/images/icons8-pelota-de-tenis-64.png" alt="Logo Club tenis"><h2>Raquiti Club Esportiu</h2></div>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" type="text/css" href="./assets/styles/main.scss"><!-- do not remove this line! -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>UOC Boilerplate</title>
+</head>
+
+<body>
+  <header class="header">
+    <div class="header__header_logo">
+      <img class="header__header_logo__img" src="/src/assets/images/icons8-pelota-de-tenis-64.png"
+        alt="Logo Club tennis">
+      <h2>Raquiti Club Esportiu</h2>
+    </div>
   </header>
 
   <main>
-    <div class="grid-wrapper">
-    <div class="grid-container">
-      <nav class="item-navegacion">
-        <ul>
-          <li><h2>Menú de Navegació</h2></li>
-          <li><a href="participants.html">Participants</a></li>
-          <li><a href="article.html">Article</a></li>
-          <li><a href="contacte.html">Contacte</a></li>
-      </ul>
-      </nav>
-      <div class="item-imagen1"><img src="/src/assets/images/Index/Index_img1.webp" alt="Imagen 1"></div>
-      <div class="item-titulo"><h1>Club de Tenis amb instal·lacions i material</h1></div>
-      <div class="item-imagen2"><img src="/src/assets/images/Index/Index_img2.webp" alt="Imagen 2"></div>
-      <div class="item-texto"><h2>Descobreix Raquiti, el teu nou destí per a l'amor al tennis a Barcelona! Amb pistes d'alta qualitat, entrenadors professionals i una comunitat apassionada, Raquiti és perfecte tant per a jugadors novells com experimentats. Uneix-te a nosaltres per millorar el teu joc, participar en tornejos emocionants i gaudir d'un ambient amigable. Sigues part d'una experiència única al cor de Barcelona. Raquiti, on la passió pel tennis cobra vida!</h2></div>
-      <div class="item-imagen3"><img src="/src/assets/images/Index/Index_img3.webp" alt="Imagen 3"></div>
+    <div class="gd-wrp">
+      <div class="gd-wrp__gd-cntr">
+        <nav class="gd-wrp__gd-cntr__nav">
+          <ul>
+            <li class="gd-wrp__gd-cntr__nav__li">
+              <h2 class="gd-wrp__gd-cntr__nav__li__h2">Menú de Navegació</h2>
+            </li>
+            <li class="gd-wrp__gd-cntr__nav__li"><a class="gd-wrp__gd-cntr__nav__li__a"
+                href="participants.html">Participants</a></li>
+            <li class="gd-wrp__gd-cntr__nav__li"><a class="gd-wrp__gd-cntr__nav__li__a" href="article.html">Article</a>
+            </li>
+            <li class="gd-wrp__gd-cntr__nav__li"><a class="gd-wrp__gd-cntr__nav__li__a"
+                href="contacte.html">Contacte</a></li>
+          </ul>
+        </nav>
+        <div class="gd-wrp__gd-cntr__dv1"><img class="gd-wrp__gd-cntr__dv1__img"
+            src="/src/assets/images/Index/Index_img1.webp" alt="Imatge saque"></div>
+        <div class="gd-wrp__gd-cntr__dv2">
+          <h1 class="gd-wrp__gd-cntr__dv2__h1">Club de Tenis amb instal·lacions i material</h1>
+        </div>
+        <div class="gd-wrp__gd-cntr__dv3"><img class="gd-wrp__gd-cntr__dv3__img"
+            src="/src/assets/images/Index/Index_img2.webp" alt="Imatge tennis club"></div>
+        <div class="gd-wrp__gd-cntr__dv4">
+          <h2 class="gd-wrp__gd-cntr__dv4__h2">Descobreix Raquiti, el teu nou destí per a l'amor al tennis a Barcelona!
+            Amb pistes d'alta qualitat, entrenadors professionals i una comunitat apassionada, Raquiti és perfecte tant
+            per a jugadors novells com experimentats. Uneix-te a nosaltres per millorar el teu joc, participar en
+            tornejos emocionants i gaudir d'un ambient amigable. Sigues part d'una experiència única al cor de
+            Barcelona. Raquiti, on la passió pel tennis cobra vida!</h2>
+        </div>
+        <div class="gd-wrp__gd-cntr__dv5"><img class="gd-wrp__gd-cntr__dv5__img"
+            src="/src/assets/images/Index/Index_img3.webp" alt="Bola girant"></div>
+      </div>
     </div>
-  </div>
   </main>
-    </div>
-    <include src="./views/footer.html"></include>
-    <script type="module" src="./assets/scripts/main.js"></script><!-- do not remove this line! -->
-  </body>
+  </div>
+  <script type="module" src="./assets/scripts/main.js"></script><!-- do not remove this line! -->
+</body>
+<include src="./views/footer.html"></include>
+
 </html>
