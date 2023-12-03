@@ -144,7 +144,7 @@ body {
   color: #fff;
   text-align: center;
 
-  &__ul{
+  &__ul {
 
     &__li {
       width: 60%;
@@ -168,6 +168,7 @@ body {
     width: 90%;
 
     &__gd-cntr {
+      // @supports (display: grid) {
       display: grid;
       align-items: center;
       grid-template-columns: repeat(3, 1fr);
@@ -205,6 +206,7 @@ body {
         grid-row: 3 / span 1;
       }
 
+      // } claudator Displays grid
       &__dv5,
       &__dv3,
       &__dv1 {
@@ -215,6 +217,16 @@ body {
           border-radius: 10%;
         }
       }
+
+      // @supports (container-type: inline-size) {
+      //   container-type: inline-size;
+
+      //   @container (min-width: 1024px) {
+      //     &__dv4 {
+      //       grid-column: span 2; 
+      //     }
+      //   }
+      // }
     }
   }
 }
@@ -236,6 +248,7 @@ body {
 
   .gd-wrp {
     &__gd-cntr {
+      // @supports (display: grid) {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       grid-template-rows: repeat(4, auto);
@@ -262,7 +275,7 @@ body {
       }
 
       &__dv4 {
-        grid-column:  2 / span 2;
+        grid-column: 2 / span 2;
         grid-row: 4;
         justify-content: center;
 
@@ -276,6 +289,8 @@ body {
         grid-row: 4 / span 1;
       }
 
+      // } claudator Displays grid
+
       &__dv5,
       &__dv3,
       &__dv1 {
@@ -286,7 +301,6 @@ body {
           border-radius: 10%;
         }
       }
-
     }
   }
 
@@ -375,6 +389,10 @@ body {
   }
 }
 
+// @supports not (display: grid) {
+//   .gd-wrp__gd-cntr {
+//     // Estilos de fallback para navegadores que no soportan CSS Grid
+//   }
 
 /*------------------------------------*\
   #PARTICIPANTS
@@ -402,22 +420,122 @@ body {
   }
 }
 
-
+//Falta estils navegador i centrarlo 
 
 
 /*------------------------------------*\
   #ARTICLE
 \*------------------------------------*/
 
-.article-container {}
 
-.article-container p:has(> img) {}
+// .header {
+//   &__header_logo {
+//     display: flex;
+//     align-items: center;
+//     justify-content: space-between;
+//     padding: 1rem;
 
-.article-container p:is(:nth-child(odd)) {}
+//     &__img {
+//       width: 50px;
+//       height: auto;
+//     }
 
-.article-container p:where(:last-child) {}
+//     &__h2 {
+//       font-size: 2rem;
+//     }
+//   }
+
+//   &__dv {
+//     &__nav {
+//       background-color: #f8f8f8;
+
+//       &__ul {
+//         list-style-type: none;
+//         display: flex;
+//         justify-content: center;
+
+//         &__li {
+//           padding: 0.5rem 1rem;
+
+//           &:is(:hover, :focus) {
+//             background-color: #ddd;
+//           }
+
+//           &__a {
+//             text-decoration: none;
+//             color: #333;
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
+
+.general {
+  &__art {
+    padding: 2rem;
+
+    &__p {
+      margin-bottom: 1rem;
+      line-height: 1.6;
+
+      &:has(> strong) {
+        color: #ff4500;
+      }
+    }
+
+    &__img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 1rem auto;
+    }
+
+    &__sec {
+      margin: 2rem 0;
+
+    //   &:where(:last-of-type) {
+    //     background-color: #868585;
+    //     padding: 1rem;
+    //   }
+    }
+
+    &__ul {
+      &__li {
+        list-style-type: square;
+        margin-left: 2rem;
+      }
+    }
+  }
+}
+
+.header__dv__nav__ul {
+  flex-direction: column;
+}
+
+@media screen and (min-width: 1024px) {
+  .header__header_logo {
+    justify-content: start;
+  }
+
+  .general__art__sec {
+    padding: 2rem;
+  }
+}
+
+@media screen and (min-width:481px) and (max-width: 1023px) {
+  .header__dv__nav__ul__li {
+    padding: 0.5rem;
+  }
+}
 
 
+@media screen and (max-width: 480px) {
+  .header__header_logo__h2 {
+    font-size: 1.5rem;
+  }
+
+}
 
 /*------------------------------------*\
   #CONTACTE
@@ -484,6 +602,13 @@ body {
   color: hsl(var(--required-color));
   border: 1px solid hsl(var(--required-border-color));
   margin-bottom: 2vh;
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+}
+
+.is-invalid {
+  border-color: red;
 }
 
 
