@@ -62,25 +62,6 @@ body {
   }
 }
 
-.gd-wrp__gd-cntr__nav {
-  padding: 10px;
-  color: #fff;
-  text-align: center;
-
-  a {
-    margin: 10px;
-    color: #fff;
-    text-decoration: none;
-  }
-
-  li {
-    width: 60%;
-    margin-right: 7%;
-    list-style: none;
-  }
-
-}
-
 .header {
   margin-bottom: 20px;
   padding: 2rem;
@@ -158,7 +139,26 @@ body {
 //   }
 // }
 
+.gd-wrp__gd-cntr__nav {
+  padding: 10px;
+  color: #fff;
+  text-align: center;
 
+  &__ul{
+
+    &__li {
+      width: 60%;
+      margin-right: 7%;
+      list-style: none;
+
+      &__a {
+        margin: 10px;
+        color: #fff;
+        text-decoration: none;
+      }
+    }
+  }
+}
 
 /*----- Desktop -----*/
 
@@ -380,27 +380,29 @@ body {
   #PARTICIPANTS
 \*------------------------------------*/
 
-.participants-container {
+.general__sec {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
   padding: 20px;
   justify-content: center;
+
+  &__art {
+    flex: 1 1 300px;
+    border: 1px solid #ccc;
+    margin: 10px;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    text-align: center;
+
+    &__img {
+      max-width: 100%;
+      height: auto;
+    }
+  }
 }
 
-.participant-card {
-  flex: 1 1 300px;
-  border: 1px solid #ccc;
-  margin: 10px;
-  padding: 10px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  text-align: center;
-}
 
-.participant-card img {
-  max-width: 100%;
-  height: auto;
-}
 
 
 /*------------------------------------*\
@@ -447,22 +449,22 @@ body {
     }
   }
 
-  .contact-form label:is(.required) {
+  .general__sec__form label:is(.required) {
     color: hsl(var(--required-color));
   }
 
-  .contact-form input:where(:required) {
+  .general__sec__form input:where(:required) {
     border: 1px solid hsl(var(--required-border-color));
   }
 
-  .contact-form button:has(> span) {
+  .general__sec__form button:has(> span) {
     padding: 10px 20px;
   }
 }
 
 @layer utilities {
   @container (min-width: 30em) {
-    .contact-form {
+    .general__sec__form {
       /* Estils específics per a contenidors més amplis */
       width: 40vw;
     }
@@ -478,7 +480,7 @@ body {
 }
 
 /* Utilització de noves unitats i colors */
-.contact-form {
+.general__sec__form {
   color: hsl(var(--required-color));
   border: 1px solid hsl(var(--required-border-color));
   margin-bottom: 2vh;

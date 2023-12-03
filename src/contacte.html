@@ -13,23 +13,32 @@
         <div class="header__header_logo">
           <img class="header__header_logo__img" src="/src/assets/images/icons8-pelota-de-tenis-64.png"
             alt="Logo Club tennis">
-          <h2>Raquiti Club Esportiu</h2>
+          <h2 class="header__header_logo__h2">Raquiti Club Esportiu</h2>
         </div>
+
+        <div class="header__dv">
+          <nav class="header__dv__nav">
+              <ul class="header__dv__nav__ul">
+                <li class="header__dv__nav__ul__li"><a class="header__dv__nav__ul__li__a" href="index.html">Inici</a></li>
+                <li class="header__dv__nav__ul__li"><a class="header__dv__nav__ul__li__a" href="participants.html">Participants</a></li>
+                <li class="header__dv__nav__ul__li"><a class="header__dv__nav__ul__li__a" href="article.html">Article</a></li>
+                <li class="header__dv__nav__ul__li"><a class="header__dv__nav__ul__li__a" href="contacte.html">Contacte</a></li>
+             </ul>
+         </nav>
       </header>
-    <main>
-        </nav>
-        <section class="contact-container">
-            <form class="contact-form">
-                <label for="name">Nom:</label>
-                <input type="text" id="name" name="name" required>
+    <main class="general">
+        <section class="general__sec">
+            <form class="general__sec__form">
+                <label class="general__sec__form__lab" for="name">Nom:</label>
+                <input class="general__sec__form__inp" type="text" id="name" name="name" required>
 
-                <label for="email">Correu electrònic:</label>
-                <input type="email" id="email" name="email" required>
+                <label class="general__sec__form__lab" for="email">Correu electrònic:</label>
+                <input class="general__sec__form__inp" type="email" id="email" name="email" required>
 
-                <label for="message">Missatge:</label>
-                <textarea id="message" name="message" required></textarea>
+                <label class="general__sec__form__lab" for="message">Missatge:</label>
+                <textarea class="general__sec__form__txt" id="message" name="message" required></textarea>
 
-                <button type="submit">Enviar</button>
+                <button class="general__sec__form__btn" type="submit">Enviar</button>
             </form>
         </section>
     </main>
