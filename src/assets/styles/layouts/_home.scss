@@ -81,11 +81,15 @@ body {
   }
 
   &__nav {
-    width: 100%;
-    justify-content: end;
+    display: flex;
+    flex-direction: column;
 
     &__dv {
       text-align: center;
+
+      &__h2 {
+        padding-left: 20%;
+      }
 
       &__ul {
         list-style: none;
@@ -145,6 +149,12 @@ body {
 /*----- Desktop -----*/
 
 @media (min-width: $breakpoint-desktop) {
+
+  .header__nav {
+    padding-left: 50%;
+    padding-right: 2%;
+  }
+
   @supports (display: grid) {
     .gd-wrp {
       width: 90%;
@@ -227,14 +237,21 @@ body {
 /*----- Tablet -----*/
 @media (min-width: $breakpoint-mobile) and (max-width: $breakpoint-tablet) {
 
+
   .header {
-    &__header__header_logo {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+
+    &__header_logo {
       display: flex;
+      align-items: center;
       flex-direction: row;
 
-      &__img {
-        min-width: 70%;
-        min-height: auto;
+      &__nav {
+        display: flex;
+        flex-direction: column;
       }
     }
   }
@@ -248,12 +265,13 @@ body {
         grid-gap: 10px;
 
         &__dv0 {
-          grid-column: 1 / span 1;
+          grid-column: 1 / span 2;
           grid-row: 2;
           justify-content: center;
         }
 
         &__dv1 {
+          padding-top: 10%;
           grid-column: 3 / span 1;
           grid-row: 2;
         }
@@ -275,6 +293,7 @@ body {
         }
 
         &__dv5 {
+          padding-top: 40%;
           grid-column: 1;
           grid-row: 4 / span 1;
         }
@@ -292,43 +311,48 @@ body {
       }
     }
   }
-}
 
-@media screen and (min-width: 481px) and (max-width: 1023px) {
-  @supports not (display: grid) {
-    .gd-wrp {
-      &__gd-cntr {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-around;
+  @media (min-width: $breakpoint-mobile) and (max-width: $breakpoint-tablet) {
+    @supports not (display: grid) {
+      .gd-wrp {
+        &__gd-cntr {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-around;
 
-        &__dv0,
-        &__dv1,
-        &__dv2,
-        &__dv3,
-        &__dv4,
-        &__dv5 {
-          flex: 1 1 calc(50% - 10px);
-          margin: 5px;
+          &__dv0,
+          &__dv1,
+          &__dv2,
+          &__dv3,
+          &__dv4,
+          &__dv5 {
+            flex: 1 1 calc(50% - 10px);
+            margin: 5px;
+          }
         }
       }
     }
   }
 }
 
-
 /*----- Mobile -----*/
 
 @media (max-width: $breakpoint-mobile) {
 
   .header {
-    &__header__header_logo {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+
+    &__header_logo {
       display: flex;
+      align-items: center;
       flex-direction: row;
 
-      &__img {
-        min-width: 70%;
-        min-height: auto;
+      &__nav {
+        display: flex;
+        flex-direction: column;
       }
     }
   }
@@ -391,30 +415,29 @@ body {
       }
     }
   }
-}
 
-@media screen and (max-width: 480px) {
-  @supports not (display: grid) {
-    .gd-wrp {
-      &__gd-cntr {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+  @media screen and (max-width: 480px) {
+    @supports not (display: grid) {
+      .gd-wrp {
+        &__gd-cntr {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
 
-        &__dv0,
-        &__dv1,
-        &__dv2,
-        &__dv3,
-        &__dv4,
-        &__dv5 {
-          flex: 1 1 100%;
-          margin: 5px 0;
+          &__dv0,
+          &__dv1,
+          &__dv2,
+          &__dv3,
+          &__dv4,
+          &__dv5 {
+            flex: 1 1 100%;
+            margin: 5px 0;
+          }
         }
       }
     }
   }
 }
-
 
 
 /*------------------------------------*\
@@ -530,15 +553,7 @@ body {
   }
 
   button {
-    background-color: #007bff;
     color: white;
-    border: none;
-    border-radius: 0.25rem;
-    cursor: pointer;
-
-    &:hover {
-      background-color: darken($color: #007bff, $amount: 10%);
-    }
   }
 }
 
@@ -549,61 +564,70 @@ body {
 .general__sec {
   display: flex;
   flex-direction: column;
-  width: 80dvw;
+  align-items: center;
+  justify-content: center;
+}
 
-  /*----- Desktop -----*/
+/*----- Desktop -----*/
 
-  @media (min-width: $breakpoint-desktop) {
-    width: 50dvw;
-  }
-
-  /*----- Tablet -----*/
-
-  @media (min-width: $breakpoint-tablet) {
-    width: 70dvw;
-
-  }
-
-  /*----- Mobile -----*/
-
-  @media (max-width: $breakpoint-mobile) {
-    width: 90dvw;
-
-    .general {
-      padding-left: 5%;
-      padding-right: 5%;
-    }
-  }
-
+@media (min-width: $breakpoint-desktop) {
   .general__sec__form {
-    gap: 1lv;
-    display: flex;
-    flex-direction: column;
+    width: calc(50vw / 2);
+  }
+}
 
-    &__inp,
-    &__txt,
-    &__chk {
-      margin-bottom: 1sv;
-      padding: 0.5rem;
-      border: 1px solid hwb(0, 100%, 0%);
-      border-radius: 0.25rem;
-    }
+/*----- Tablet -----*/
 
-    &__btn {
-      padding: 1lv;
-      border: none;
-      border-radius: 0.25rem;
-      background-color: hwb(224 14% 39%);
-      color: hwb(0, 100%, 0%);
-      cursor: pointer;
-      transition: background-color 0.3s ease;
+@media (min-width: $breakpoint-tablet) {
+  .general__sec__form {
+    width: calc(70vw / 2);
+  }
 
-      &:hover {
-        background-color: darken(rgb(255, 31, 31), 10%);
-      }
+}
+
+/*----- Mobile -----*/
+
+@media (max-width: $breakpoint-mobile) {
+  .general__sec__form {
+    width: 90vw;
+  }
+
+  .general {
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 50px;
+  }
+}
+
+.general__sec__form {
+  gap: 1lv;
+  display: flex;
+  flex-direction: column;
+  padding-right: 30px;
+
+  &__inp,
+  &__txt,
+  &__chk {
+    margin-bottom: 1sv;
+    padding: 0.5rem;
+    border: 1px solid hwb(0, 100%, 0%);
+    border-radius: 0.25rem;
+  }
+
+  &__btn {
+    padding: 1lv;
+    border: none;
+    border-radius: 0.25rem;
+    background-color: hwb(224 14% 39%);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: darken(rgb(255, 31, 31), 10%);
     }
   }
 }
+
 
 
 /*------------------------------------*\

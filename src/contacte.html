@@ -1,64 +1,70 @@
 <!DOCTYPE html>
 
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <link rel="stylesheet" type="text/css" href="./assets/styles/main.scss"><!-- do not remove this line! -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>UOC Boilerplate</title>
-  </head>
-  <body>
-    <header class="header">
-      <div class="header__header_logo">
-        <img class="header__header_logo__img" src="/src/assets/images/icons8-pelota-de-tenis-64.png"
-          alt="Logo Club tennis">
-        <h2>Raquiti Club Esportiu</h2>
-      </div>
-      <nav class="header__nav">
-        <div class="header__nav__dv">
-          <h2 class="header__nav__dv__h2">Menú de Navegació</h2>
-        </div>
-        <div class="header__nav__dv">
-          <ul class="header__nav__dv__ul">
-            <li class="header__nav__dv__ul__li">
-              <a class="header__nav__dv__ul__li__a" href="index.html">Inici</a>
-            </li>
-            <li class="header__nav__dv__ul__li">
-              <a class="header__nav__dv__ul__li__a" href="participants.html">Participants</a>
-            </li>
-            <li class="header__nav__dv__ul__li">
-              <a class="header__nav__dv__ul__li__a" href="article.html">Article</a>
-            </li>
-          </ul>
-        </div>
-      </nav>
-    </header>
-    <main class="general">
-      <section class="general__sec">
-          <form class="general__sec__form">
-              <label class="general__sec__form__lab" for="name">Nom:</label>
-              <input class="general__sec__form__inp" type="text" id="name" name="name" required>
-  
-              <label class="general__sec__form__lab" for="age">Edat:</label>
-              <input class="general__sec__form__inp" type="number" id="age" name="age" required>
-  
-              <label class="general__sec__form__lab" for="description">Comentari:</label>
-              <textarea class="general__sec__form__txt" id="description" name="description" required></textarea>
-  
-              <label class="general__sec__form__lab" for="email">Correu electrònic:</label>
-              <input class="general__sec__form__inp" type="email" id="email" name="email" required>
-  
-              <label class="general__sec__form__lab" for="tournament">Apuntar-se al torneig:</label>
-              <input class="general__sec__form__chk" type="checkbox" id="tournament" name="tournament">
-  
-              <button class="general__sec__form__btn" type="submit">Enviar</button>
-          </form>
-      </section>
-  </main>
-  
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" type="text/css" href="./assets/styles/main.scss"><!-- do not remove this line! -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>UOC Boilerplate</title>
+</head>
+
+<body>
+  <header class="header">
+    <div class="header__header_logo">
+      <img class="header__header_logo__img" src="/src/assets/images/icons8-pelota-de-tenis-64.png"
+        alt="Logo Club tennis">
+      <h2>Raquiti Club Esportiu</h2>
     </div>
-    <include src="./views/footer.html"></include>
-    <script type="module" src="./assets/scripts/main.js"></script><!-- do not remove this line! -->
-  </body>
+    <nav class="header__nav">
+      <div class="header__nav__dv">
+        <h2 class="header__nav__dv__h2">Menú de Navegació</h2>
+      </div>
+      <div class="header__nav__dv">
+        <ul class="header__nav__dv__ul">
+          <li class="header__nav__dv__ul__li">
+            <a class="header__nav__dv__ul__li__a" href="index.html">Inici</a>
+          </li>
+          <li class="header__nav__dv__ul__li">
+            <a class="header__nav__dv__ul__li__a" href="participants.html">Participants</a>
+          </li>
+          <li class="header__nav__dv__ul__li">
+            <a class="header__nav__dv__ul__li__a" href="article.html">Article</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <main class="general">
+    <section class="general__sec">
+      <div>
+        <h2>Formulari de contacte</h2>
+      </div>
+      <form class="general__sec__form">
+        <label class="general__sec__form__lab" for="name">Nom:</label>
+        <input class="general__sec__form__inp" type="text" id="name" name="name" required>
+
+        <label class="general__sec__form__lab" for="age">Edat:</label>
+        <input class="general__sec__form__inp" type="number" id="age" name="age" required>
+
+        <label class="general__sec__form__lab" for="description">Comentari:</label>
+        <textarea class="general__sec__form__txt" id="description" name="description" required></textarea>
+
+        <label class="general__sec__form__lab" for="email">Correu electrònic:</label>
+        <input class="general__sec__form__inp" type="email" id="email" name="email" required>
+
+        <label class="general__sec__form__lab" for="tournament">Apuntar-se al torneig:</label>
+        <input class="general__sec__form__chk" type="checkbox" id="tournament" name="tournament">
+
+        <button class="general__sec__form__btn" type="submit">Enviar</button>
+      </form>
+    </section>
+  </main>
+  <include src="./views/footer.html"></include>
+  <script type="module" src="./assets/scripts/main.js"></script><!-- do not remove this line! -->
+</body>
+
 </html>
