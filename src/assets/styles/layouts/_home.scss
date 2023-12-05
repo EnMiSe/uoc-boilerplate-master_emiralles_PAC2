@@ -2,33 +2,27 @@
 INDEX SECCIONS
 
 #GENERAL (Secció on s'apliquen els estils generals de la web)
-*.................Configuració del box-sizing
-header............Estils header
-navSec............Estils del navegador que redirigeix a les diferents seccions de la web.
-navPer............Estils amb la configuració de la secció de canvi de color del background.
-container.........Estils generals per als contenidors dels textos i imatges.
-uoc-footer........Estils per al footer.
-link-insta........Estils per al link del footer que redirigeix a la pàgina de One Piece a Instagram.
+
 *
 
-#DESKTOP
-body..............Configuració per a desktop del body de la web.
+#INDEX
+
 *
 
-#TABLET
-body..............Configuració per a desktop del body de la web.
+#PARTICIPANTS
+
 *
 
-#MOBILE
-body..............Configuració per a desktop del body de la web.
+#ARTICLE
+
 *
 
-#SLIDER
-slider............Configuració i estils per al slider amb imatges de la web.
+#CONTACTE
+
 *
 
-#CANVI COLOR BACKGROUND
-Configuració per al "set up" del canvi de color per mitjà dels botons.
+#FOOTER
+
 *
 
 **/
@@ -38,22 +32,26 @@ Configuració per al "set up" del canvi de color per mitjà dels botons.
   #GENERAL
 \*------------------------------------*/
 
+/* Definicó de variables */
+$breakpoint-mobile: 480px;
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1024px;
 
 * {
   box-sizing: border-box;
 }
 
 body {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  margin: 0;
-  padding-top: 3rem;
   font-family: $font-family-sans-serif;
   font-size: 16px;
   line-height: 24px;
   background-color: $uoc-bg;
   color: $uoc-corporate;
+  height: 100vh;
+  margin: 0;
+  padding-top: 3rem;
+  display: flex;
+  flex-direction: column;
 
   main {
     padding: 2rem;
@@ -83,8 +81,8 @@ body {
   }
 
   &__nav {
-    justify-content: end;
     width: 100%;
+    justify-content: end;
 
     &__dv {
       text-align: center;
@@ -94,14 +92,14 @@ body {
         display: flex;
 
         &__li {
-          flex-direction: row;
           width: 100%;
           margin-right: 7%;
+          flex-direction: row;
 
           &__a {
-            margin: 10px;
             color: #fff;
             text-decoration: none;
+            margin: 10px;
 
           }
         }
@@ -117,7 +115,6 @@ body {
     width: 100%;
   }
 }
-
 
 
 /*------------------------------------*\
@@ -147,77 +144,88 @@ body {
 
 /*----- Desktop -----*/
 
-@media screen and (min-width: 1024px) {
-  .gd-wrp {
-    display: flex;
-    width: 90%;
+@media (min-width: $breakpoint-desktop) {
+  @supports (display: grid) {
+    .gd-wrp {
+      width: 90%;
+      display: flex;
 
-    &__gd-cntr {
-      // @supports (display: grid) {
-      display: grid;
-      align-items: center;
-      grid-template-columns: repeat(3, 1fr);
-      grid-template-rows: repeat(3, auto);
-      grid-gap: 10px;
+      &__gd-cntr {
+        display: grid;
+        align-items: center;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(3, auto);
+        grid-gap: 10px;
 
-      &__dv0 {
-        grid-column: 3;
-        grid-row: 1 / span 1;
-      }
+        &__dv0 {
+          grid-column: 3;
+          grid-row: 1 / span 1;
+        }
 
-      &__dv1 {
-        grid-column: 1 / span 1;
-        grid-row: 1;
-      }
+        &__dv1 {
+          grid-column: 1 / span 1;
+          grid-row: 1;
+        }
 
-      &__dv2 {
-        grid-column: 1 / span 1;
-        grid-row: 2;
-      }
+        &__dv2 {
+          grid-column: 1 / span 1;
+          grid-row: 2;
+        }
 
-      &__dv3 {
-        grid-column: 2 / span 1;
-        grid-row: 2;
-      }
+        &__dv3 {
+          grid-column: 2 / span 1;
+          grid-row: 2;
+        }
 
-      &__dv4 {
-        grid-column: 1 / span 1;
-        grid-row: 3;
-        justify-content: center;
-      }
+        &__dv4 {
+          grid-column: 1 / span 1;
+          grid-row: 3;
+          justify-content: center;
+        }
 
-      &__dv5 {
-        grid-column: 3;
-        grid-row: 3 / span 1;
-      }
+        &__dv5 {
+          grid-column: 3;
+          grid-row: 3 / span 1;
+        }
 
-      // } claudator Displays grid
-      &__dv5,
-      &__dv3,
-      &__dv1 {
-        img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          border-radius: 10%;
+        &__dv5,
+        &__dv3,
+        &__dv1 {
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10%;
+          }
         }
       }
+    }
+  }
+}
 
-      // @supports (container-type: inline-size) {
-      //   container-type: inline-size;
+@supports not (display: grid) {
+  .gd-wrp {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
 
-      //   @container (min-width: 1024px) {
-      //     &__dv4 {
-      //       grid-column: span 2; 
-      //     }
-      //   }
-      // }
+    &__gd-cntr {
+
+      &__dv0,
+      &__dv1,
+      &__dv2,
+      &__dv3,
+      &__dv4,
+      &__dv5 {
+        flex: 1 1 calc(33%);
+        margin: 5px;
+      }
     }
   }
 }
 
 /*----- Tablet -----*/
-@media screen and (min-width:481px) and (max-width: 1023px) {
+@media (min-width: $breakpoint-mobile) and (max-width: $breakpoint-tablet) {
 
   .header {
     &__header__header_logo {
@@ -231,66 +239,87 @@ body {
     }
   }
 
-  .gd-wrp {
-    &__gd-cntr {
-      // @supports (display: grid) {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      grid-template-rows: repeat(4, auto);
-      grid-gap: 10px;
+  @supports (display: grid) {
+    .gd-wrp {
+      &__gd-cntr {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(4, auto);
+        grid-gap: 10px;
 
-      &__dv0 {
-        grid-column: 1 / span 1;
-        grid-row: 2;
-        justify-content: center;
-      }
+        &__dv0 {
+          grid-column: 1 / span 1;
+          grid-row: 2;
+          justify-content: center;
+        }
 
-      &__dv1 {
-        grid-column: 3 / span 1;
-        grid-row: 2;
-      }
+        &__dv1 {
+          grid-column: 3 / span 1;
+          grid-row: 2;
+        }
 
-      &__dv2 {
-        grid-column: 2;
-        grid-row: 1 / span 1;
-      }
+        &__dv2 {
+          grid-column: 2;
+          grid-row: 1 / span 1;
+        }
 
-      &__dv3 {
-        grid-column: 2 / span 1;
-        grid-row: 3;
-      }
+        &__dv3 {
+          grid-column: 2 / span 1;
+          grid-row: 3;
+        }
 
-      &__dv4 {
-        grid-column: 2 / span 2;
-        grid-row: 4;
-        justify-content: center;
-      }
+        &__dv4 {
+          grid-column: 2 / span 2;
+          grid-row: 4;
+          justify-content: center;
+        }
 
-      &__dv5 {
-        grid-column: 1;
-        grid-row: 4 / span 1;
-      }
+        &__dv5 {
+          grid-column: 1;
+          grid-row: 4 / span 1;
+        }
 
-      // } claudator Displays grid
-
-      &__dv5,
-      &__dv3,
-      &__dv1 {
-        img {
-          width: 100%;
-          height: auto;
-          object-fit: cover;
-          border-radius: 10%;
+        &__dv5,
+        &__dv3,
+        &__dv1 {
+          img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            border-radius: 10%;
+          }
         }
       }
     }
   }
-
 }
+
+@media screen and (min-width: 481px) and (max-width: 1023px) {
+  @supports not (display: grid) {
+    .gd-wrp {
+      &__gd-cntr {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+
+        &__dv0,
+        &__dv1,
+        &__dv2,
+        &__dv3,
+        &__dv4,
+        &__dv5 {
+          flex: 1 1 calc(50% - 10px);
+          margin: 5px;
+        }
+      }
+    }
+  }
+}
+
 
 /*----- Mobile -----*/
 
-@media screen and (max-width: 480px) {
+@media (max-width: $breakpoint-mobile) {
 
   .header {
     &__header__header_logo {
@@ -304,89 +333,109 @@ body {
     }
   }
 
-  .gd-wrp {
-    &__gd-cntr {
-      display: grid;
-      grid-template-columns: repeat(1, 1fr);
-      grid-template-rows: repeat(9, auto);
-      grid-gap: 10px;
+  @supports (display: grid) {
+    .gd-wrp {
+      &__gd-cntr {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(9, auto);
+        grid-gap: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
 
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: space-around;
-      width: 100%;
+        &__dv0 {
+          grid-column: 1 / span 1;
+          grid-row: 3;
+          justify-content: center;
+        }
 
-      &__dv0 {
-        grid-column: 1 / span 1;
-        grid-row: 3;
-        justify-content: center;
-      }
+        &__dv1 {
+          grid-column: 1 / span 1;
+          grid-row: 2;
+        }
 
-      &__dv1 {
-        grid-column: 1 / span 1;
-        grid-row: 2;
-      }
+        &__dv2 {
+          grid-column: 1;
+          grid-row: 1 / span 1;
+        }
 
-      &__dv2 {
-        grid-column: 1;
-        grid-row: 1 / span 1;
-      }
+        &__dv3 {
+          grid-column: 1 / span 1;
+          grid-row: 4;
+        }
 
-      &__dv3 {
-        grid-column: 1 / span 1;
-        grid-row: 4;
-      }
+        &__dv4 {
+          grid-column: 1 / span 1;
+          grid-row: 5;
+          justify-content: center;
+        }
 
-      &__dv4 {
-        grid-column: 1 / span 1;
-        grid-row: 5;
-        justify-content: center;
-      }
+        &__dv5 {
+          grid-column: 1;
+          grid-row: 6 / span 1;
+        }
 
-      &__dv5 {
-        grid-column: 1;
-        grid-row: 6 / span 1;
-      }
-
-      &__dv5,
-      &__dv3,
-      &__dv1 {
-        img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          border-radius: 10%;
+        &__dv5,
+        &__dv3,
+        &__dv1 {
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10%;
+          }
         }
       }
     }
   }
 }
 
-// @supports not (display: grid) {
-//   .gd-wrp__gd-cntr {
-//     // Estilos de fallback para navegadores que no soportan CSS Grid
-//   }
+@media screen and (max-width: 480px) {
+  @supports not (display: grid) {
+    .gd-wrp {
+      &__gd-cntr {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        &__dv0,
+        &__dv1,
+        &__dv2,
+        &__dv3,
+        &__dv4,
+        &__dv5 {
+          flex: 1 1 100%;
+          margin: 5px 0;
+        }
+      }
+    }
+  }
+}
+
+
 
 /*------------------------------------*\
   #PARTICIPANTS
 \*------------------------------------*/
 
 .general__sec {
-  display: flex;
-  flex-wrap: wrap;
   gap: 20px;
   padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
   justify-content: center;
 
   &__art {
-    flex: 1 1 300px;
-    border: 1px solid #ccc;
+    max-width: 350px;
     margin: 10px;
     padding: 10px;
+    border: 1px solid #ccc;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    flex: 1 1 300px;
     text-align: center;
-    max-width: 350px;
 
     &__img {
       max-width: 100%;
@@ -394,213 +443,183 @@ body {
     }
   }
 }
-
-//Falta estils navegador i centrarlo 
 
 
 /*------------------------------------*\
   #ARTICLE
 \*------------------------------------*/
 
-
-// .header {
-//   &__header_logo {
-//     display: flex;
-//     align-items: center;
-//     justify-content: space-between;
-//     padding: 1rem;
-
-//     &__img {
-//       width: 50px;
-//       height: auto;
-//     }
-
-//     &__h2 {
-//       font-size: 2rem;
-//     }
-//   }
-
-//   &__dv {
-//     &__nav {
-//       background-color: #f8f8f8;
-
-//       &__ul {
-//         list-style-type: none;
-//         display: flex;
-//         justify-content: center;
-
-//         &__li {
-//           padding: 0.5rem 1rem;
-
-//           &:is(:hover, :focus) {
-//             background-color: #ddd;
-//           }
-
-//           &__a {
-//             text-decoration: none;
-//             color: #333;
-//           }
-//         }
-//       }
-//     }
-//   }
-// }
-
-.general {
-  &__art {
-    padding: 2rem;
-
-    &__p {
-      margin-bottom: 1rem;
-      line-height: 1.6;
-
-      &:has(> strong) {
-        color: #ff4500;
-      }
-    }
-
-    &__img {
-      max-width: 100%;
-      height: auto;
-      display: block;
-      margin: 1rem auto;
-    }
-
-    &__sec {
-      margin: 2rem 0;
-
-      //   &:where(:last-of-type) {
-      //     background-color: #868585;
-      //     padding: 1rem;
-      //   }
-    }
-
-    &__ul {
-      &__li {
-        list-style-type: square;
-        margin-left: 2rem;
-      }
-    }
-  }
-}
-
-.header__dv__nav__ul {
+.general__art {
+  padding: 2rem;
+  display: flex;
   flex-direction: column;
-}
+  align-items: center;
 
-@media screen and (min-width: 1024px) {
-  .header__header_logo {
-    justify-content: start;
+  &__p {
+    margin-bottom: 1rem;
+
+    & :has(> strong) {
+      color: blue;
+    }
   }
 
-  .general__art__sec {
-    padding: 2rem;
+  &__img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 1rem;
+  }
+
+  &__ul {
+    list-style: none;
+
+    &__li:where(:nth-child(odd)) {
+      background-color: #535252;
+    }
   }
 }
 
-@media screen and (min-width:481px) and (max-width: 1023px) {
-  .header__dv__nav__ul__li {
-    padding: 0.5rem;
+/*----- Desktop -----*/
+
+@media (min-width: $breakpoint-desktop) {
+  .general__art {
+    &__p {
+      text-align: center;
+    }
   }
 }
 
+/*----- Tablet -----*/
 
-@media screen and (max-width: 480px) {
-  .header__header_logo__h2 {
-    font-size: 1.5rem;
+@media (min-width: $breakpoint-mobile) and (max-width: $breakpoint-tablet) {
+  .general__art {
+    &__p {
+      text-align: left;
+    }
   }
-
 }
+
+/*----- Mobile -----*/
+
+@media (max-width: $breakpoint-mobile) {
+  .general__art {
+    &__p {
+      text-align: justify;
+    }
+  }
+}
+
 
 /*------------------------------------*\
   #CONTACTE
 \*------------------------------------*/
 
-@layer base, components, utilities;
-
-@layer base {
-  body {
-    font-size: 16px;
-    /* Estil base */
-  }
-}
-
-@layer components {
-  .contact-container {
-    display: flex;
-    justify-content: center;
-    padding: 5vw;
-  }
-
-  .contact-form {
-    display: grid;
-    gap: 16px;
-    width: 50vw;
-
-    @supports not (width: 50vw) {
-      width: 50%;
-    }
-  }
-
-  .general__sec__form label:is(.required) {
-    color: hsl(var(--required-color));
-  }
-
-  .general__sec__form input:where(:required) {
-    border: 1px solid hsl(var(--required-border-color));
-  }
-
-  .general__sec__form button:has(> span) {
-    padding: 10px 20px;
-  }
-}
-
-@layer utilities {
-  @container (min-width: 30em) {
-    .general__sec__form {
-      /* Estils específics per a contenidors més amplis */
-      width: 40vw;
-    }
-  }
-}
-
-/* Definició de variables de color */
-:root {
-  --required-color: 220 50% 50%;
-  /* Exemple de color HSL */
-  --required-border-color: 220 50% 40%;
-  /* Exemple de color HSL amb una mica més de foscor */
-}
-
-/* Utilització de noves unitats i colors */
-.general__sec__form {
-  color: hsl(var(--required-color));
-  border: 1px solid hsl(var(--required-border-color));
-  margin-bottom: 2vh;
+@mixin form-styles {
   display: flex;
   flex-direction: column;
-  width: 80%;
+  gap: 1rem;
+
+  label {
+    margin-bottom: 0.5rem;
+  }
+
+  input,
+  textarea,
+  button {
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+
+    &:hover {
+      background-color: darken($color: #007bff, $amount: 10%);
+    }
+  }
 }
 
-.is-invalid {
-  border-color: red;
+.general__sec__form {
+  @include form-styles;
+}
+
+.general__sec {
+  display: flex;
+  flex-direction: column;
+  width: 80dvw;
+
+  /*----- Desktop -----*/
+
+  @media (min-width: $breakpoint-desktop) {
+    width: 50dvw;
+  }
+
+  /*----- Tablet -----*/
+
+  @media (min-width: $breakpoint-tablet) {
+    width: 70dvw;
+
+  }
+
+  /*----- Mobile -----*/
+
+  @media (max-width: $breakpoint-mobile) {
+    width: 90dvw;
+
+    .general {
+      padding-left: 5%;
+      padding-right: 5%;
+    }
+  }
+
+  .general__sec__form {
+    gap: 1lv;
+    display: flex;
+    flex-direction: column;
+
+    &__inp,
+    &__txt,
+    &__chk {
+      margin-bottom: 1sv;
+      padding: 0.5rem;
+      border: 1px solid hwb(0, 100%, 0%);
+      border-radius: 0.25rem;
+    }
+
+    &__btn {
+      padding: 1lv;
+      border: none;
+      border-radius: 0.25rem;
+      background-color: hwb(224 14% 39%);
+      color: hwb(0, 100%, 0%);
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: darken(rgb(255, 31, 31), 10%);
+      }
+    }
+  }
 }
 
 
 /*------------------------------------*\
   #FOOTER
 \*------------------------------------*/
+
 .uoc-footer {
   background-image: linear-gradient(to bottom, #e40444 30%, #23548c);
+  font-size: 15px;
   margin-top: 20px;
   padding-top: 25px;
-  font-size: 0.75rem;
   text-align: center;
-  font-size: 15px;
   box-sizing: border-box;
 
   &__a {
-    text-decoration: none;
     color: $uoc-corporate;
+    text-decoration: none;
   }
 }

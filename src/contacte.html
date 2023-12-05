@@ -35,21 +35,28 @@
       </nav>
     </header>
     <main class="general">
-        <section class="general__sec">
-            <form class="general__sec__form">
-                <label class="general__sec__form__lab" for="name">Nom:</label>
-                <input class="general__sec__form__inp" type="text" id="name" name="name" required>
-
-                <label class="general__sec__form__lab" for="email">Correu electrònic:</label>
-                <input class="general__sec__form__inp" type="email" id="email" name="email" required>
-
-                <label class="general__sec__form__lab" for="message">Missatge:</label>
-                <textarea class="general__sec__form__txt" id="message" name="message" required></textarea>
-
-                <button class="general__sec__form__btn" type="submit">Enviar</button>
-            </form>
-        </section>
-    </main>
+      <section class="general__sec">
+          <form class="general__sec__form">
+              <label class="general__sec__form__lab" for="name">Nom:</label>
+              <input class="general__sec__form__inp" type="text" id="name" name="name" required>
+  
+              <label class="general__sec__form__lab" for="age">Edat:</label>
+              <input class="general__sec__form__inp" type="number" id="age" name="age" required>
+  
+              <label class="general__sec__form__lab" for="description">Comentari:</label>
+              <textarea class="general__sec__form__txt" id="description" name="description" required></textarea>
+  
+              <label class="general__sec__form__lab" for="email">Correu electrònic:</label>
+              <input class="general__sec__form__inp" type="email" id="email" name="email" required>
+  
+              <label class="general__sec__form__lab" for="tournament">Apuntar-se al torneig:</label>
+              <input class="general__sec__form__chk" type="checkbox" id="tournament" name="tournament">
+  
+              <button class="general__sec__form__btn" type="submit">Enviar</button>
+          </form>
+      </section>
+  </main>
+  
     </div>
     <include src="./views/footer.html"></include>
     <script type="module" src="./assets/scripts/main.js"></script><!-- do not remove this line! -->
