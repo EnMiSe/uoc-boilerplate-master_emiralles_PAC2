@@ -1,31 +1,36 @@
 /**
-INDEX SECCIONS
-
-#GENERAL (Secció on s'apliquen els estils generals de la web)
-
-*
-
-#INDEX
-
-*
-
-#PARTICIPANTS
-
-*
-
-#ARTICLE
-
-*
-
-#CONTACTE
-
-*
-
-#FOOTER
-
-*
-
-**/
+ * INDEX SECCIONS
+ * 
+ * #GENERAL (Secció on s'apliquen els estils generals de la web)
+ *   - Definició de variables
+ *   - Estils globals
+ *   - Estils del body
+ *   - Estils del header
+ *   - Media queries per al footer en pantalles amples
+ * 
+ * #INDEX
+ *   - Estils de .gd-wrp i .gd-cntr
+ *   - Estils específics per dispositius de tipus Desktop, Tablet i Mobile
+ *   - Suport per display: grid i alternatives quan no es suporta
+ * 
+ * #PARTICIPANTS
+ *   - Estils per a .general-part__sec i elements fills
+ *   - Estils específics per a imatges dins de participants
+ * 
+ * #ARTICLE
+ *   - Estils base per a .general__art
+ *   - Estils específics per a paràgrafs, imatges i llistes
+ *   - Adaptacions segons l'amplada de la pantalla (Desktop, Tablet, Mobile)
+ * 
+ * #CONTACTE
+ *   - Mixin per estils de formularis
+ *   - Estils específics per a formularis de contacte
+ *   - Adaptacions segons l'amplada de la pantalla (Desktop, Tablet, Mobile)
+ * 
+ * #FOOTER
+ *   - Estils per a .uoc-footer
+ *   - Estils específics per a enllaços dins del footer
+ */
 
 
 /*------------------------------------*\
@@ -62,11 +67,23 @@ body {
 
 .header {
   margin-bottom: 20px;
-  padding: 2rem;
+  padding: 3rem;
   padding-right: 3rem;
   display: flex;
   align-items: center;
   flex-direction: row;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    z-index: -1;
+  }
 
   &__header_logo {
     display: flex;
@@ -149,7 +166,6 @@ body {
 /*----- Desktop -----*/
 
 @media (min-width: $breakpoint-desktop) {
-
   .header__nav {
     padding-left: 50%;
     padding-right: 2%;
@@ -158,7 +174,6 @@ body {
   @supports (display: grid) {
     .gd-wrp {
       width: 90%;
-      display: flex;
 
       &__gd-cntr {
         display: grid;
@@ -235,8 +250,8 @@ body {
 }
 
 /*----- Tablet -----*/
-@media (min-width: $breakpoint-mobile) and (max-width: $breakpoint-tablet) {
 
+@media (min-width: $breakpoint-mobile) and (max-width: $breakpoint-tablet) {
 
   .header {
     display: flex;
@@ -365,10 +380,6 @@ body {
         grid-template-columns: repeat(1, 1fr);
         grid-template-rows: repeat(9, auto);
         grid-gap: 10px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-around;
 
         &__dv0 {
           grid-column: 1 / span 1;
@@ -444,12 +455,13 @@ body {
   #PARTICIPANTS
 \*------------------------------------*/
 
-.general__sec {
+.general-part__sec {
   gap: 20px;
   padding: 20px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  position: relative;
 
   &__art {
     max-width: 350px;
@@ -459,6 +471,19 @@ body {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     flex: 1 1 300px;
     text-align: center;
+    position: relative;
+    z-index: 1;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 5px;
+      left: 5px;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.1);
+      z-index: -1;
+    }
 
     &__img {
       max-width: 100%;
@@ -467,6 +492,11 @@ body {
   }
 }
 
+.dropdown {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 /*------------------------------------*\
   #ARTICLE
@@ -573,61 +603,110 @@ body {
 @media (min-width: $breakpoint-desktop) {
   .general__sec__form {
     width: calc(50vw / 2);
+    gap: 1lv;
+    display: flex;
+    flex-direction: column;
+    padding-right: 30px;
+
+    &__inp,
+    &__txt,
+    &__chk {
+      margin-bottom: 1sv;
+      padding: 0.5rem;
+      border: 1px solid hwb(0, 100%, 0%);
+      border-radius: 0.25rem;
+    }
+
+    &__btn {
+      padding: 1lv;
+      border: none;
+      border-radius: 0.25rem;
+      background-color: hwb(224 14% 39%);
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: darken(rgb(255, 31, 31), 10%);
+      }
+    }
   }
 }
+
 
 /*----- Tablet -----*/
 
 @media (min-width: $breakpoint-tablet) {
   .general__sec__form {
     width: calc(70vw / 2);
-  }
+    gap: 1lv;
+    display: flex;
+    flex-direction: column;
+    padding-right: 30px;
 
-}
+    &__inp,
+    &__txt,
+    &__chk {
+      margin-bottom: 1sv;
+      padding: 0.5rem;
+      border: 1px solid hwb(0, 100%, 0%);
+      border-radius: 0.25rem;
+    }
 
-/*----- Mobile -----*/
+    &__btn {
+      padding: 1lv;
+      border: none;
+      border-radius: 0.25rem;
+      background-color: hwb(224 14% 39%);
+      cursor: pointer;
+      transition: background-color 0.3s ease;
 
-@media (max-width: $breakpoint-mobile) {
-  .general__sec__form {
-    width: 90vw;
-  }
-
-  .general {
-    padding-left: 5%;
-    padding-right: 5%;
-    padding-top: 50px;
-  }
-}
-
-.general__sec__form {
-  gap: 1lv;
-  display: flex;
-  flex-direction: column;
-  padding-right: 30px;
-
-  &__inp,
-  &__txt,
-  &__chk {
-    margin-bottom: 1sv;
-    padding: 0.5rem;
-    border: 1px solid hwb(0, 100%, 0%);
-    border-radius: 0.25rem;
-  }
-
-  &__btn {
-    padding: 1lv;
-    border: none;
-    border-radius: 0.25rem;
-    background-color: hwb(224 14% 39%);
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-
-    &:hover {
-      background-color: darken(rgb(255, 31, 31), 10%);
+      &:hover {
+        background-color: darken(rgb(255, 31, 31), 10%);
+      }
     }
   }
 }
 
+
+/*----- Mobile -----*/
+
+@media (max-width: $breakpoint-mobile) {
+  .general {
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 50px;
+
+    &__sec__form {
+      width: 90vw;
+      gap: 1lv;
+      display: flex;
+      flex-direction: column;
+      padding-right: 30px;
+
+      &__inp,
+      &__txt,
+      &__chk {
+        margin-bottom: 1sv;
+        padding: 0.5rem;
+        border: 1px solid hwb(0, 100%, 0%);
+        border-radius: 0.25rem;
+      }
+
+      &__btn {
+        padding: 1lv;
+        border: none;
+        border-radius: 0.25rem;
+        background-color: hwb(224 14% 39%);
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+          background-color: darken(rgb(255, 31, 31), 10%);
+        }
+      }
+    }
+  }
+}
 
 
 /*------------------------------------*\
